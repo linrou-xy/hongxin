@@ -1,0 +1,637 @@
+/* ==========================================================================
+   沃野红心 · 响应式样式
+   断点：1180 / 980 / 760 / 520
+   ========================================================================== */
+
+@media (max-width: 1180px) {
+  .topbar__brand-line,
+  .topbar__brand-text {
+    display: none;
+  }
+
+  .topbar__brand img {
+    width: 145px;
+  }
+
+  .hero__left {
+    padding-left: 5vw;
+  }
+
+  .hero__figure {
+    right: 8%;
+    width: min(76%, 420px);
+  }
+
+  .statement__grid {
+    grid-template-columns: 0.7fr 1.3fr;
+  }
+
+  .crop-card {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 980px) {
+  :root {
+    --header-h: 70px;
+  }
+
+  .topbar {
+    height: var(--header-h);
+  }
+
+  .topbar.is-scrolled {
+    height: 62px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .topbar__cta {
+    display: none;
+  }
+
+  .topbar__nav {
+    position: fixed;
+    z-index: 102;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 6.5rem 10vw 3rem;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(199, 154, 74, 0.2), transparent 25%),
+      var(--red);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.35s ease, transform 0.45s var(--ease);
+  }
+
+  .topbar__nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .topbar__nav a {
+    width: 100%;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(244, 238, 226, 0.22);
+    color: rgba(244, 238, 226, 0.78);
+    font-family: var(--sans);
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+
+  .topbar__nav a.is-active {
+    color: var(--paper-light);
+  }
+
+  .topbar__nav a::after {
+    display: none;
+  }
+
+  .nav-toggle[aria-expanded="true"] span {
+    background: var(--paper-light);
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .hero__left {
+    padding: 3.5rem 5vw 2.5rem;
+  }
+
+  .hero__right {
+    min-height: 620px;
+  }
+
+  .hero__figure {
+    right: 12%;
+    bottom: 7%;
+    width: min(58%, 430px);
+  }
+
+  .hero__sun {
+    top: 8%;
+    left: 10%;
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero__stamp {
+    bottom: 8%;
+    left: 8%;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .statement__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .statement__visual {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .statement__eighty {
+    font-size: clamp(8rem, 30vw, 16rem);
+  }
+
+  .statement__photo {
+    width: 210px;
+    margin: 0;
+  }
+
+  .growth-item,
+  .growth-item:nth-child(even) {
+    grid-template-columns: 0.36fr 0.64fr;
+    gap: 1.2rem 2rem;
+  }
+
+  .growth-item__year,
+  .growth-item:nth-child(even) .growth-item__year {
+    grid-column: 1 / -1;
+    order: 0;
+    text-align: left;
+    font-size: 4.5rem;
+  }
+
+  .growth-item__media,
+  .growth-item:nth-child(even) .growth-item__media {
+    order: 1;
+  }
+
+  .growth-item__copy,
+  .growth-item:nth-child(even) .growth-item__copy {
+    order: 2;
+  }
+
+  .crop-rail {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field-letter__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-letter__visual {
+    min-height: 360px;
+  }
+
+  .cta-band__grid {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .page-hero__title {
+    font-size: clamp(3.5rem, 12vw, 7rem);
+  }
+
+  .story-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .year-rail {
+    position: static;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .year-rail ol {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.7rem;
+    border-left: 0;
+  }
+
+  .year-rail a {
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--line);
+  }
+
+  .year-rail a::before {
+    display: none;
+  }
+
+  .story-article {
+    max-width: none;
+  }
+
+  .field-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .field-stories {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field-story--photo {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
+
+  .crop-lab__head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .crop-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .action-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .checklist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-ring {
+    width: 128px;
+    height: 128px;
+  }
+
+  .commitment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .commitment-preview {
+    order: -1;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --container: 90vw;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 3.8rem 0;
+  }
+
+  .section-head {
+    display: block;
+  }
+
+  .section-head__aside {
+    margin-top: 1rem;
+  }
+
+  .topbar__brand img {
+    width: 126px;
+  }
+
+  .hero__left {
+    padding-top: 2.8rem;
+  }
+
+  .hero__top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero__title-line {
+    font-size: clamp(4.4rem, 19vw, 8rem);
+  }
+
+  .hero__title-pre {
+    font-size: 0.9rem;
+  }
+
+  .hero__lead {
+    font-size: 0.82rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .hero__foot {
+    gap: 0.9rem 1.4rem;
+  }
+
+  .hero__right {
+    min-height: 520px;
+  }
+
+  .hero__figure {
+    right: 7%;
+    bottom: 8%;
+    width: min(68%, 380px);
+  }
+
+  .hero__sun {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero__side {
+    right: 2%;
+    font-size: 0.6rem;
+  }
+
+  .hero__stamp {
+    width: 88px;
+    height: 88px;
+  }
+
+  .hero__stamp b {
+    font-size: 1.5rem;
+  }
+
+  .statement__visual {
+    display: block;
+  }
+
+  .statement__photo {
+    width: 58%;
+    margin: 1.3rem 0 0 auto;
+  }
+
+  .statement__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .statement__fact {
+    padding: 0.7rem 0;
+  }
+
+  .statement__fact + .statement__fact {
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .growth__list {
+    border-top: 0;
+  }
+
+  .growth-item,
+  .growth-item:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 1.8rem 0;
+  }
+
+  .growth-item__year,
+  .growth-item:nth-child(even) .growth-item__year {
+    font-size: 3.5rem;
+  }
+
+  .growth-item__media,
+  .growth-item:nth-child(even) .growth-item__media {
+    order: 2;
+  }
+
+  .growth-item__copy,
+  .growth-item:nth-child(even) .growth-item__copy {
+    order: 3;
+  }
+
+  .crop-rail {
+    grid-template-columns: 1fr;
+  }
+
+  .crop-card {
+    min-height: 300px;
+  }
+
+  .field-letter__visual {
+    min-height: 280px;
+  }
+
+  .field-letter__copy {
+    padding: 1.4rem;
+  }
+
+  .field-letter__copy h2 {
+    font-size: 2rem;
+  }
+
+  .cta-band h2 {
+    font-size: 2.6rem;
+  }
+
+  .page-hero {
+    padding-top: calc(var(--header-h) + 3rem);
+  }
+
+  .page-hero__title {
+    font-size: 3.4rem;
+  }
+
+  .page-hero__index {
+    font-size: 9rem;
+  }
+
+  .story-chapter h2 {
+    font-size: 2.2rem;
+  }
+
+  .story-photo--small {
+    width: 88%;
+  }
+
+  .story-pullquote {
+    padding: 1.1rem;
+    font-size: 1.2rem;
+  }
+
+  .motto-panel__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-intro h1 {
+    font-size: 3.2rem;
+  }
+
+  .field-stories {
+    grid-template-columns: 1fr;
+    padding: 2.8rem 0;
+  }
+
+  .field-story {
+    min-height: 300px;
+  }
+
+  .field-story--photo {
+    grid-column: auto;
+  }
+
+  .crop-lab__head h2 {
+    font-size: 2.5rem;
+  }
+
+  .crop-tab {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.62rem;
+  }
+
+  .crop-panel__main h3 {
+    font-size: 2.6rem;
+  }
+
+  .crop-stat {
+    grid-template-columns: 82px 1fr 38px;
+  }
+
+  .growth-stage {
+    min-height: 240px;
+  }
+
+  .growth-lab__title h2 {
+    font-size: 2.5rem;
+  }
+
+  .action-hero h1 {
+    font-size: 3.8rem;
+  }
+
+  .action-hero__quote {
+    font-size: 0.85rem;
+  }
+
+  .check-item {
+    grid-template-columns: 26px 1fr;
+  }
+
+  .check-item__no {
+    display: none;
+  }
+
+  .commitment-preview canvas {
+    width: 100%;
+  }
+
+  .page-next {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .page-next a {
+    font-size: 1.7rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero__title-line {
+    font-size: 4.3rem;
+  }
+
+  .hero__right {
+    min-height: 460px;
+  }
+
+  .hero__figure {
+    width: 72%;
+  }
+
+  .hero__stamp {
+    width: 76px;
+    height: 76px;
+    font-size: 0.52rem;
+  }
+
+  .statement__eighty {
+    font-size: 8.5rem;
+  }
+
+  .crop-card {
+    min-height: 280px;
+  }
+
+  .page-hero__title {
+    font-size: 2.9rem;
+  }
+
+  .story-chapter h2 {
+    font-size: 1.95rem;
+  }
+
+  .field-intro h1 {
+    font-size: 2.8rem;
+  }
+
+  .action-hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .progress-ring {
+    width: 112px;
+    height: 112px;
+  }
+
+  .key-grid {
+    gap: 0.3rem;
+  }
+}
+
+/* 手机上让首屏图片与说明保持干净，徽章由首页数据区继续表达 */
+@media (max-width: 760px) {
+  .hero__stamp {
+    display: none;
+  }
+}

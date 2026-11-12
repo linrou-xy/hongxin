@@ -1,0 +1,910 @@
+﻿/* ==========================================================================
+   沃野红心 · 首页样式
+   包含：麦田首屏、八十年自述、生长轴、作物卡片、田野来信与行动入口
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  grid-template-columns: 1.08fr 0.92fr;
+  padding-top: var(--header-h);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, transparent 0 54%, rgba(36, 27, 22, 0.045) 54% 54.1%, transparent 54.1%),
+    var(--paper);
+}
+
+.hero__left {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.5rem, 5vw, 5rem) 3vw clamp(2rem, 4vw, 3rem) max(5vw, calc((100vw - 1360px) / 2));
+}
+
+.hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+  margin-bottom: clamp(2.2rem, 4vw, 4rem);
+}
+
+.hero__issue {
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.hero__title {
+  position: relative;
+  z-index: 2;
+  font-family: var(--sans);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.86;
+}
+
+.hero__title-pre {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.7vw, 1.45rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+}
+
+.hero__title-line {
+  display: block;
+  width: fit-content;
+  font-size: clamp(5.6rem, 10.4vw, 10.4rem);
+  letter-spacing: 0.06em;
+}
+
+.hero__title-line--outline {
+  color: transparent;
+  -webkit-text-stroke: clamp(1px, 0.13vw, 2px) var(--ink);
+}
+
+.hero__title-line--red {
+  position: relative;
+  color: var(--red);
+}
+
+.hero__title-line--red::after {
+  position: absolute;
+  right: -0.15em;
+  bottom: 0.07em;
+  width: 0.19em;
+  height: 0.19em;
+  content: "";
+  border-radius: 50%;
+  background: var(--wheat);
+}
+
+.hero__lead {
+  max-width: 525px;
+  margin-top: clamp(1.4rem, 2.5vw, 2.2rem);
+  padding-left: 1rem;
+  border-left: 3px solid var(--red);
+  color: var(--ink-soft);
+  font-size: clamp(0.86rem, 1.15vw, 1rem);
+  line-height: 2;
+}
+
+.hero__lead strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.7rem;
+}
+
+.hero__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 2.2rem;
+  margin-top: clamp(2.4rem, 4vw, 4rem);
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.hero__stat strong {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.1vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.hero__stat span {
+  color: var(--ink-soft);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+}
+
+.hero__right {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(199, 154, 74, 0.22), transparent 40%),
+    var(--paper-deep);
+}
+
+.hero__right::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  content: "";
+  background: var(--line);
+}
+
+.hero__right::after {
+  position: absolute;
+  top: 9%;
+  right: 8%;
+  width: 58%;
+  height: 72%;
+  content: "";
+  border: 1px solid rgba(36, 27, 22, 0.15);
+  pointer-events: none;
+}
+
+.hero__sun {
+  position: absolute;
+  z-index: 0;
+  top: 6%;
+  left: 4%;
+  width: clamp(160px, 21vw, 300px);
+  height: clamp(160px, 21vw, 300px);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 35%, rgba(255, 209, 143, 0.5), transparent 35%),
+    var(--red);
+  box-shadow: 0 0 0 22px rgba(169, 43, 34, 0.08);
+  transition: transform 0.7s var(--ease);
+}
+
+.hero__figure {
+  position: absolute;
+  z-index: 2;
+  right: 10%;
+  bottom: 9%;
+  width: min(72%, 470px);
+  background: var(--paper-light);
+  box-shadow:
+    18px 22px 0 rgba(36, 27, 22, 0.09),
+    -12px -12px 0 rgba(169, 43, 34, 0.08);
+}
+
+.hero__figure img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 58%;
+  filter: saturate(1.08) contrast(1.06) sepia(0.1) brightness(0.92);
+}
+
+.hero__figure figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.8rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+.hero__figure figcaption span:last-child {
+  color: var(--red);
+  font-family: var(--sans);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+}
+
+.hero__side {
+  position: absolute;
+  z-index: 3;
+  top: 9%;
+  right: 3.5%;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  writing-mode: vertical-rl;
+}
+
+.hero__stamp {
+  position: absolute;
+  z-index: 4;
+  bottom: 7%;
+  left: 2%;
+  display: grid;
+  width: clamp(80px, 7vw, 96px);
+  height: clamp(80px, 7vw, 96px);
+  place-content: center;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  background: rgba(244, 238, 226, 0.6);
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  line-height: 1.6;
+  text-align: center;
+  transform: rotate(-13deg);
+}
+
+.hero__stamp b {
+  display: block;
+  font-family: var(--sans);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.hero__corner {
+  position: absolute;
+  z-index: 4;
+  width: 26px;
+  height: 26px;
+  border-color: var(--ink);
+  border-style: solid;
+}
+
+.hero__corner--tl {
+  top: calc(var(--header-h) + 1.2rem);
+  left: max(5vw, calc((100vw - 1360px) / 2));
+  border-width: 1px 0 0 1px;
+}
+
+.hero__corner--br {
+  right: 1.2rem;
+  bottom: 1.2rem;
+  border-width: 0 1px 1px 0;
+}
+
+/* ---------- 滚动提示 ---------- */
+
+.hero__scroll {
+  position: absolute;
+  z-index: 4;
+  right: 50%;
+  bottom: 1.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.54rem;
+  letter-spacing: 0.16em;
+  writing-mode: vertical-rl;
+}
+
+.hero__scroll::after {
+  width: 1px;
+  height: 34px;
+  content: "";
+  background: var(--red);
+  animation: scroll-line 2.4s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+/* ---------- 首屏下方的窄滚动带 ---------- */
+
+.field-ticker {
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: var(--red);
+  color: var(--paper-light);
+}
+
+.field-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: field-marquee 30s linear infinite;
+}
+
+.field-ticker span {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.72rem 1.6rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+}
+
+.field-ticker i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--wheat-light);
+}
+
+@keyframes field-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- 八十年的两种写法 ---------- */
+
+.statement {
+  border-bottom: 1px solid var(--line);
+}
+
+.statement__grid {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: start;
+}
+
+.statement__visual {
+  position: relative;
+  padding-top: 0.4rem;
+}
+
+.statement__eighty {
+  color: transparent;
+  font-family: var(--sans);
+  font-size: clamp(9rem, 19vw, 20rem);
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 0.76;
+  -webkit-text-stroke: 1px rgba(36, 27, 22, 0.36);
+}
+
+.statement__eighty span {
+  color: var(--red);
+  -webkit-text-stroke: 0;
+}
+
+.statement__years {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.statement__years::before {
+  width: 48px;
+  height: 1px;
+  content: "";
+  background: var(--red);
+}
+
+.statement__photo {
+  width: min(78%, 300px);
+  margin: 2.2rem 0 0 auto;
+  padding: 7px;
+  background: var(--paper-light);
+  box-shadow: 12px 12px 0 rgba(36, 27, 22, 0.06);
+  transform: rotate(2.4deg);
+}
+
+.statement__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: saturate(0.8) contrast(1.04);
+}
+
+.statement__photo figcaption {
+  padding-top: 0.45rem;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+}
+
+.statement__copy h2 {
+  margin-top: 1.2rem;
+  font-size: clamp(2.8rem, 5.5vw, 5.8rem);
+}
+
+.statement__copy h2 em {
+  color: var(--red);
+  font-style: normal;
+}
+
+.statement__copy > p {
+  max-width: 680px;
+  margin-top: 1.3rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 2.05;
+}
+
+.statement__copy > p strong {
+  color: var(--ink);
+}
+
+.statement__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 2.2rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.statement__fact {
+  padding: 1rem 1rem 1rem 0;
+}
+
+.statement__fact + .statement__fact {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+}
+
+.statement__fact strong {
+  display: block;
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 2.7vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.statement__fact span {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+}
+
+.statement__copy .text-link {
+  margin-top: 1.5rem;
+}
+
+/* ---------- 生长轴 ---------- */
+
+.growth {
+  background:
+    linear-gradient(90deg, transparent 49.9%, var(--line-soft) 50%, transparent 50.1%),
+    var(--paper-light);
+}
+
+.growth__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.growth-item {
+  display: grid;
+  grid-template-columns: 0.34fr 0.78fr 0.88fr;
+  gap: clamp(1.4rem, 4vw, 4rem);
+  align-items: center;
+  padding: clamp(2rem, 4vw, 3.6rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.growth-item__year {
+  color: transparent;
+  font-family: var(--sans);
+  font-size: clamp(3.6rem, 7vw, 7.4rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.82;
+  -webkit-text-stroke: 1px rgba(36, 27, 22, 0.55);
+  transition: color 0.5s ease;
+}
+
+.growth-item:hover .growth-item__year {
+  color: var(--red);
+}
+
+.growth-item__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.growth-item__media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(135deg, rgba(169, 43, 34, 0.18), transparent 45%);
+  pointer-events: none;
+}
+
+.growth-item__media img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  filter: saturate(0.74) contrast(1.05);
+  transition: transform 0.7s var(--ease);
+}
+
+.growth-item:hover .growth-item__media img {
+  transform: scale(1.035);
+}
+
+.growth-item__copy {
+  max-width: 420px;
+}
+
+.growth-item__copy span {
+  color: var(--red);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.growth-item__copy h3 {
+  margin-top: 0.5rem;
+  font-family: var(--sans);
+  font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+.growth-item__copy p {
+  margin-top: 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  line-height: 1.95;
+}
+
+.growth-item__copy a {
+  display: inline-flex;
+  margin-top: 0.9rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.growth-item__copy a:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.growth-item:nth-child(even) {
+  grid-template-columns: 0.88fr 0.78fr 0.34fr;
+}
+
+.growth-item:nth-child(even) .growth-item__year {
+  order: 3;
+  text-align: right;
+}
+
+.growth-item:nth-child(even) .growth-item__media {
+  order: 2;
+}
+
+.growth-item:nth-child(even) .growth-item__copy {
+  order: 1;
+}
+
+/* ---------- 作物卡片 ---------- */
+
+.crops {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.crop-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.crop-card {
+  position: relative;
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  padding: 1.2rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition:
+    transform 0.45s var(--ease),
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.crop-card:hover {
+  transform: translateY(-6px);
+  background: var(--red);
+  color: var(--paper-light);
+}
+
+.crop-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+}
+
+.crop-card:hover .crop-card__top {
+  color: var(--wheat-light);
+}
+
+.crop-card__icon {
+  width: 54px;
+  height: 54px;
+  margin-top: 1.4rem;
+  color: var(--red);
+  transition: color 0.35s ease, transform 0.5s var(--ease);
+}
+
+.crop-card:hover .crop-card__icon {
+  color: var(--wheat-light);
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.crop-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.crop-card h3 {
+  margin-top: auto;
+  font-family: var(--sans);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.crop-card__latin {
+  margin-top: 0.25rem;
+  color: var(--wheat);
+  font-family: var(--serif);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+}
+
+.crop-card:hover .crop-card__latin {
+  color: rgba(244, 238, 226, 0.7);
+}
+
+.crop-card p {
+  margin-top: 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  line-height: 1.8;
+}
+
+.crop-card:hover p {
+  color: rgba(244, 238, 226, 0.78);
+}
+
+.crop-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+}
+
+.crop-card:hover .crop-card__foot {
+  border-color: rgba(244, 238, 226, 0.3);
+}
+
+.crop-card__foot span:last-child {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+}
+
+/* ---------- 田野来信 ---------- */
+
+.field-letter {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.field-letter__grid {
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: stretch;
+}
+
+.field-letter__visual {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+}
+
+.field-letter__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.78) contrast(1.04);
+}
+
+.field-letter__visual::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(160deg, rgba(169, 43, 34, 0.3), transparent 55%);
+  mix-blend-mode: multiply;
+}
+
+.field-letter__tag {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.6rem;
+  background: var(--paper);
+  color: var(--red);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.field-letter__copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 3.8rem);
+  border: 1px solid var(--line);
+  background: var(--paper-light);
+}
+
+.field-letter__copy::before {
+  position: absolute;
+  top: -1px;
+  left: 2rem;
+  width: 90px;
+  height: 5px;
+  content: "";
+  background: var(--red);
+}
+
+.field-letter__copy h2 {
+  margin-top: 1rem;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.field-letter__copy blockquote {
+  margin-top: 1.2rem;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 2.05;
+}
+
+.field-letter__sign {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+  color: var(--ink-soft);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+}
+
+.field-letter__sign::before {
+  width: 34px;
+  height: 1px;
+  content: "";
+  background: var(--red);
+}
+
+/* ---------- 行动入口 ---------- */
+
+.cta-band {
+  position: relative;
+  padding: clamp(3.6rem, 7vw, 6.5rem) 0;
+  overflow: hidden;
+  background: var(--red);
+  color: var(--paper-light);
+}
+
+.cta-band::before {
+  position: absolute;
+  top: 50%;
+  right: -8%;
+  width: 42%;
+  height: 160%;
+  content: "";
+  border: 1px solid rgba(244, 238, 226, 0.22);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.cta-band__grid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cta-band h2 {
+  max-width: 760px;
+  font-family: var(--sans);
+  font-size: clamp(2.5rem, 5.5vw, 5.4rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.cta-band h2 em {
+  color: var(--wheat-light);
+  font-style: normal;
+}
+
+.cta-band p {
+  max-width: 520px;
+  margin-top: 0.8rem;
+  color: rgba(244, 238, 226, 0.78);
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.cta-band .btn {
+  flex-shrink: 0;
+  border-color: var(--paper-light);
+  color: var(--paper-light);
+}
+
+.cta-band .btn::before {
+  background: var(--paper-light);
+}
+
+.cta-band .btn:hover {
+  color: var(--red);
+}
